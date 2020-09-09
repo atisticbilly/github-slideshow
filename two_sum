@@ -1,0 +1,12 @@
+def two_sum(nums, target):
+    target_list = []
+    for key, value in enumerate(nums):
+        if (target - value) in nums[key+1:] and key not in target_list:
+            target_list.extend([key, key + 1 + nums[key+1:].index(target - value)])
+    return target_list
+
+nums = [4, 11, 4, 15, 4]
+target = 8
+result = two_sum(nums, target)
+print(result)
+[0, 2]
